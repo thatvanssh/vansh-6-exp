@@ -6,11 +6,11 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import AnimatedBox from './AnimatedBox';
-import ProfilePic from '../assets/images/vansh_profile.png';
+import siteData from '../data/siteData';
 
 export default function HeroSection() {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 } }}>
+    <Box id="hero" sx={{ py: { xs: 8, md: 12 } }}>
       <Grid container spacing={6}>
         {/* Left Column - Content */}
         <Grid size={{ xs: 12, lg: 6 }}>
@@ -19,7 +19,7 @@ export default function HeroSection() {
             <AnimatedBox animation="fadeInDown" delay={0.2} duration={0.6}>
               <Stack width="100%" alignItems={{ xs: 'center', md: "flex-start" }}>
               <Chip
-                label="Available for new projects"
+                label={siteData.hero.badge}
                 icon={
                   <Box
                     sx={{
@@ -65,7 +65,7 @@ export default function HeroSection() {
                     textAlign: {xs: "center", md: "left"}
                   }}
                 >
-                  Building Scalable{' '}
+                  {siteData.hero.title.split(siteData.hero.highlight)[0]}
                   <Typography
                     component="span"
                     variant="h1"
@@ -76,18 +76,16 @@ export default function HeroSection() {
                       textAlign: {xs: "center", md: "left"}
                     }}
                   >
-                    Full-Stack
+                    {siteData.hero.highlight}
                   </Typography>{' '}
-                  Applications
+                  {siteData.hero.title.split(siteData.hero.highlight)[1]}
                 </Typography>
                 <Typography
                   variant="body1"
                   color="text.secondary"
                   sx={{ fontSize: '1.125rem', maxWidth: '600px', textAlign: {xs: "center", md: "left"} }}
                 >
-                  MERN Stack Developer with 2+ years of experience specializing in modern web
-                  applications. I build robust, scalable solutions using MongoDB, Express, React, and
-                  Node.js with a focus on clean code and user experience.
+                  {siteData.hero.description}
                 </Typography>
               </Stack>
             </AnimatedBox>
@@ -99,6 +97,8 @@ export default function HeroSection() {
                   variant="contained"
                   size="large"
                   endIcon={<ArrowDownwardIcon />}
+                  component="a"
+                  href={siteData.hero.ctas?.[0]?.href || '#projects'}
                   sx={{
                     px: 4,
                     py: 2,
@@ -111,11 +111,13 @@ export default function HeroSection() {
                     transition: 'all 0.3s ease',
                   }}
                 >
-                  View Projects
+                  {siteData.hero.ctas?.[0]?.label || 'View Projects'}
                 </Button>
                 <Button
                   variant="outlined"
                   size="large"
+                  component="a"
+                  href={siteData.hero.ctas?.[1]?.href || '/cv.pdf'}
                   sx={{
                     px: 4,
                     py: 2,
@@ -128,7 +130,7 @@ export default function HeroSection() {
                     },
                   }}
                 >
-                  Download CV
+                  {siteData.hero.ctas?.[1]?.label || 'Download CV'}
                 </Button>
               </Box>
             </AnimatedBox>
@@ -167,9 +169,9 @@ export default function HeroSection() {
 
               {/* Profile Image */}
               <Stack sx={{ width: "auto", justifyContent: "center", alignItems: "center" }}>
-              <Box
+                <Box
                 component="img"
-                src={ProfilePic}
+                src={siteData.hero.profileImage}
                 alt="Professional portrait of a MERN stack developer"
                 sx={{
                   width: '80%',

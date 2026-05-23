@@ -10,15 +10,18 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import AnimatedBox from './AnimatedBox';
 import SkillCard from './SkillCard';
+import siteData from '../data/siteData';
 
-const skills = [
-  { name: 'MongoDB', icon: <StorageIcon /> },
-  { name: 'Express', icon: <ApiIcon /> },
-  { name: 'React', icon: <WebIcon /> },
-  { name: 'Node.js', icon: <CloudSyncIcon /> },
-  { name: 'JavaScript', icon: <CodeIcon /> },
-  { name: 'REST API', icon: <AccountTreeIcon /> },
-];
+const iconMap = {
+  MongoDB: <StorageIcon />,
+  Express: <ApiIcon />,
+  React: <WebIcon />,
+  'Node.js': <CloudSyncIcon />,
+  JavaScript: <CodeIcon />,
+  'REST API': <AccountTreeIcon />,
+};
+
+const skills = siteData.skills.map((name) => ({ name, icon: iconMap[name] || <CodeIcon /> }));
 
 export default function SkillsSection() {
   return (
@@ -48,7 +51,7 @@ export default function SkillsSection() {
         </Box>
       </AnimatedBox>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent="center">
         {skills.map((skill, index) => (
           <Grid size={{ xs: 6, sm: 4, md: 2 }} key={index}>
             <AnimatedBox animation="fadeInUp" delay={0.2 + index * 0.1} duration={0.5}>

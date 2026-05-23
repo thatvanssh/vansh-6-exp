@@ -17,6 +17,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useScrollTrigger } from '@mui/material';
 import React from 'react';
+import siteData from '../data/siteData';
 
 /* Elevation on scroll */
 function ElevationScroll({ children }) {
@@ -73,12 +74,19 @@ export default function Header() {
     setMobileOpen(false);
   };
 
-  const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Contact', href: '#contact' },
-  ];
+  const navItems = siteData.navItems;
+
+  const scrollToSection = (href) => {
+    if (!href) return;
+    const targetId = href === '#' ? 'hero' : href.startsWith('#') ? href.slice(1) : href;
+    const target = document.getElementById(targetId);
+
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const drawer = (
     <Box sx={{ width: 280, height: '100%', bgcolor: 'background.default' }}>
@@ -90,7 +98,7 @@ export default function Header() {
           p: 2,
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Box
             sx={{
               width: 32,
@@ -105,9 +113,9 @@ export default function Header() {
           >
             <CodeIcon fontSize="small" />
           </Box>
-          <Typography variant="h6" fontWeight={800}>
-            Alex Johnson
-          </Typography>
+                <Typography variant="h6" fontWeight={800}>
+                  {siteData.siteName}
+                </Typography>
         </Box>
         <IconButton onClick={handleDrawerClose}>
           <CloseIcon />
@@ -119,7 +127,12 @@ export default function Header() {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton href={item.href} onClick={handleDrawerClose}>
+            <ListItemButton
+              onClick={() => {
+                handleDrawerClose();
+                scrollToSection(item.href);
+              }}
+            >
               <ListItemText
                 primary={item.label}
                 primaryTypographyProps={{ fontWeight: 600 }}
@@ -174,7 +187,7 @@ export default function Header() {
                   <CodeIcon fontSize="small" />
                 </Box>
                 <Typography variant="h6" fontWeight={800}>
-                  Alex Johnson
+                  {siteData.siteName}
                 </Typography>
               </Box>
 
@@ -188,19 +201,23 @@ export default function Header() {
                 }}>
                 {navItems.map((item) => (
                   <Typography
-                    component="a"
+                    component="button"
                     key={item.label}
-                    href={item.href}
+                    onClick={() => scrollToSection(item.href)}
                     color="inherit"
                     sx={{
                       fontWeight: 600,
                       transition: "all 0.2s ease-in-out",
                       fontSize: { xs: "14px", lg: "16px" },
                       textDecoration: "none",
-                      "&:hover": {
-                        color: "primary.main",
-                        transform: "translateY(-5px) scale(1.1)"
-                      }
+                      background: 'none',
+                      border: 'none',
+                      cursor: 'pointer',
+                      p: 0,
+                      '&:hover': {
+                        color: 'primary.main',
+                        transform: 'translateY(-5px) scale(1.1)',
+                      },
                     }}
                   >
                     {item.label}

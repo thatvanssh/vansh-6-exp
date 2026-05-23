@@ -1,0 +1,106 @@
+{
+  "siteName": "Vansh Shukla",
+  "navItems": [
+    { "label": "Home", "href": "#" },
+    { "label": "Projects", "href": "#projects" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "badge": "Freelance • Remote • Worldwide",
+    "title": "Building Scalable MERN Stack Applications",
+    "highlight": "MERN Stack",
+    "description": "Freelance Full Stack MERN Developer with 6+ years of experience in building scalable web applications, modern UI systems, REST APIs, and cloud-based solutions. Specialized in MongoDB, Express.js, React.js, Node.js, AWS, and DevOps workflows with a strong focus on performance and clean architecture.",
+    "ctas": [
+      { "label": "View Projects", "type": "primary", "href": "#projects" },
+      { "label": "Hire Me", "type": "secondary", "href": "#contact" }
+    ],
+    "profileImage": "vansh_profile.png"
+  },
+  "experience": [
+    {
+      "company": "Green Touch IT Solutions",
+      "role": "Senior Software Engineer",
+      "duration": "Mar 2020 - Present",
+      "type": "Full-time",
+      "location": "Remote",
+      "description": "Leading full-stack development of scalable web applications using the MERN stack. Worked on API development, cloud deployment, performance optimization, reusable component architecture, and DevOps workflows on AWS."
+    }
+  ],
+  "projects": [
+    {
+      "title": "Logistics Management Platform",
+      "description": "A scalable logistics and shipment tracking platform with real-time order management, admin dashboards, delivery tracking, and secure REST APIs. Optimized for high performance and responsive user experience.",
+      "image": "laiza_app.png",
+      "tags": [
+        { "label": "REACT", "color": "rgba(43, 108, 238, 0.1)", "textColor": "#2b6cee" },
+        { "label": "NODE.JS", "color": "rgba(16, 185, 129, 0.1)", "textColor": "#10b981" },
+        { "label": "AWS", "color": "rgba(251, 146, 60, 0.1)", "textColor": "#fb923c" }
+      ],
+      "date": "2025",
+      "link": "https://github.com"
+    },
+    {
+      "title": "Healthcare Management System",
+      "description": "A complete healthcare web platform with patient management, appointment scheduling, reports, and admin panel. Built with scalable backend architecture and responsive frontend design.",
+      "image": "my_hospital.png",
+      "tags": [
+        { "label": "MERN", "color": "rgba(43, 108, 238, 0.1)", "textColor": "#2b6cee" },
+        { "label": "EXPRESS", "color": "rgba(96, 165, 250, 0.1)", "textColor": "#60a5fa" },
+        { "label": "MONGODB", "color": "rgba(244, 63, 94, 0.1)", "textColor": "#f43f5e" }
+      ],
+      "date": "2024",
+      "link": "https://github.com"
+    },
+    {
+      "title": "E-Commerce Admin Dashboard",
+      "description": "Modern e-commerce dashboard with analytics, order management, authentication, and product inventory system. Includes responsive charts and advanced filtering features.",
+      "image": "sna_mart.png",
+      "tags": [
+        { "label": "REACT", "color": "rgba(43, 108, 238, 0.1)", "textColor": "#2b6cee" },
+        { "label": "NODE.JS", "color": "rgba(100, 116, 139, 0.1)", "textColor": "#64748b" },
+        { "label": "MONGODB", "color": "rgba(168, 85, 247, 0.1)", "textColor": "#a855f7" }
+      ],
+      "date": "2024",
+      "link": "https://github.com"
+    },
+    {
+      "title": "Team Collaboration Platform",
+      "description": "A real-time collaboration and task management platform featuring authentication, team workspaces, notifications, role management, and live updates using scalable backend services.",
+      "image": "dawa_bajar.png",
+      "tags": [
+        { "label": "REACT", "color": "rgba(43, 108, 238, 0.1)", "textColor": "#2b6cee" },
+        { "label": "SOCKET.IO", "color": "rgba(168, 85, 247, 0.1)", "textColor": "#a855f7" },
+        { "label": "NODE.JS", "color": "rgba(100, 116, 139, 0.1)", "textColor": "#64748b" }
+      ],
+      "date": "2023",
+      "link": "https://github.com"
+    }
+  ],
+  "skills": [
+    "MongoDB",
+    "Express.js",
+    "React.js",
+    "Node.js",
+    "JavaScript",
+    "TypeScript",
+    "REST API",
+    "AWS",
+    "DevOps",
+    "GraphQL",
+    "Tailwind CSS",
+    "Next.js",
+    "Git",
+    "Docker"
+  ],
+  "socials": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com"
+    }
+  ]
+}
