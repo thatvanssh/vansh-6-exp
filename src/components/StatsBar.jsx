@@ -5,7 +5,7 @@ import AnimatedBox from './AnimatedBox';
 
 const stats = [
   { value: '15+', label: 'Projects Completed' },
-  { value: '2+', label: 'Years Experience' },
+  { value: '6+', label: 'Years Experience' },
   { value: '100%', label: 'Client Satisfaction' },
   { value: '25k+', label: 'Lines of Code' },
 ];
