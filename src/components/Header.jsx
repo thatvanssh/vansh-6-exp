@@ -1,23 +1,24 @@
-import CloseIcon from '@mui/icons-material/Close';
-import MenuIcon from '@mui/icons-material/Menu';
-import CodeIcon from '@mui/icons-material/Code';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Stack from '@mui/material/Stack';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { useScrollTrigger } from '@mui/material';
-import React from 'react';
-import siteData from '../data/siteData';
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
+import CodeIcon from "@mui/icons-material/Code";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Stack from "@mui/material/Stack";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { useScrollTrigger } from "@mui/material";
+import React from "react";
+import Logo from "../assets/images/logo.png";
+import siteData from "../data/siteData";
 
 /* Elevation on scroll */
 function ElevationScroll({ children }) {
@@ -39,7 +40,7 @@ export default function Header() {
 
   /* Scroll hide/show logic */
   React.useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     let ticking = false;
 
@@ -62,8 +63,8 @@ export default function Header() {
       }
     };
 
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleDrawerToggle = () => {
@@ -78,44 +79,45 @@ export default function Header() {
 
   const scrollToSection = (href) => {
     if (!href) return;
-    const targetId = href === '#' ? 'hero' : href.startsWith('#') ? href.slice(1) : href;
+    const targetId =
+      href === "#" ? "hero" : href.startsWith("#") ? href.slice(1) : href;
     const target = document.getElementById(targetId);
 
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else if (href === '#') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (href === "#") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const drawer = (
-    <Box sx={{ width: 280, height: '100%', bgcolor: 'background.default' }}>
+    <Box sx={{ width: 280, height: "100%", bgcolor: "background.default" }}>
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           p: 2,
         }}
       >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Box
             sx={{
               width: 32,
               height: 32,
-              bgcolor: 'primary.main',
+              bgcolor: "primary.main",
               borderRadius: 2,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
             }}
           >
             <CodeIcon fontSize="small" />
           </Box>
-                <Typography variant="h6" fontWeight={800}>
-                  {siteData.siteName}
-                </Typography>
+          <Typography variant="h6" fontWeight={800}>
+            {siteData.siteName}
+          </Typography>
         </Box>
         <IconButton onClick={handleDrawerClose}>
           <CloseIcon />
@@ -159,36 +161,24 @@ export default function Header() {
         <AppBar
           position="fixed"
           sx={{
-            backgroundColor: 'rgba(16, 22, 34, 0.8)',
-            backdropFilter: 'blur(12px)',
-            borderBottom: '1px solid rgba(148, 163, 184, 0.1)',
-            transform: isHeaderVisible
-              ? 'translateY(0)'
-              : 'translateY(-100%)',
-            transition: 'transform 0.3s ease-in-out',
+            backgroundColor: "rgba(16, 22, 34, 0.8)",
+            backdropFilter: "blur(12px)",
+            borderBottom: "1px solid rgba(148, 163, 184, 0.1)",
+            transform: isHeaderVisible ? "translateY(0)" : "translateY(-100%)",
+            transition: "transform 0.3s ease-in-out",
           }}
         >
           <Container maxWidth="xl">
-            <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+            <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
               {/* Logo */}
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Box
+                  component="img"
+                  src={Logo}
                   sx={{
-                    width: 32,
-                    height: 32,
-                    bgcolor: 'primary.main',
-                    borderRadius: 2,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: 'white',
+                    width: 100
                   }}
-                >
-                  <CodeIcon fontSize="small" />
-                </Box>
-                <Typography variant="h6" fontWeight={800}>
-                  {siteData.siteName}
-                </Typography>
+                />
               </Box>
 
               {/* Desktop Nav */}
@@ -196,9 +186,10 @@ export default function Header() {
                 direction="row"
                 spacing={{ xs: 5, lg: 8 }}
                 sx={{
-                  display: { xs: 'none', md: 'flex' },
-                  fontSize: { xs: "14px", lg: '16px' }
-                }}>
+                  display: { xs: "none", md: "flex" },
+                  fontSize: { xs: "14px", lg: "16px" },
+                }}
+              >
                 {navItems.map((item) => (
                   <Typography
                     component="button"
@@ -210,13 +201,13 @@ export default function Header() {
                       transition: "all 0.2s ease-in-out",
                       fontSize: { xs: "14px", lg: "16px" },
                       textDecoration: "none",
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer',
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
                       p: 0,
-                      '&:hover': {
-                        color: 'primary.main',
-                        transform: 'translateY(-5px) scale(1.1)',
+                      "&:hover": {
+                        color: "primary.main",
+                        transform: "translateY(-5px) scale(1.1)",
                       },
                     }}
                   >
@@ -226,17 +217,17 @@ export default function Header() {
               </Stack>
 
               {/* CTA + Mobile Menu */}
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                 <Button
                   variant="contained"
-                  sx={{ display: { xs: 'none', md: 'inline-flex' } }}
+                  sx={{ display: { xs: "none", md: "inline-flex" } }}
                 >
                   Hire Me
                 </Button>
                 <IconButton
                   color="inherit"
                   onClick={handleDrawerToggle}
-                  sx={{ display: { xs: 'block', md: 'none' } }}
+                  sx={{ display: { xs: "block", md: "none" } }}
                 >
                   <MenuIcon />
                 </IconButton>
@@ -253,10 +244,10 @@ export default function Header() {
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
         sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': {
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
             width: 280,
-            bgcolor: 'background.default',
+            bgcolor: "background.default",
           },
         }}
       >
