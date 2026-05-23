@@ -104,7 +104,7 @@ export default function CTASection() {
             <Box sx={{ display: 'flex', gap: 2 }}>
               <Button
                 variant="outlined"
-                href="https://www.linkedin.com/in/alex-johnson"
+                href="https://www.linkedin.com/in/vansh-s-973151401/"
                 sx={{
                   minWidth: 56,
                   height: 56,
@@ -120,7 +120,7 @@ export default function CTASection() {
               </Button>
               <Button
                 variant="outlined"
-                href="https://github.com/alexjohnson"
+                href="/"
                 sx={{
                   minWidth: 56,
                   height: 56,
