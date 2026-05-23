@@ -32,11 +32,16 @@ function ElevationScroll({ children }) {
   });
 }
 
-export default function Header() {
+export default function Header({ onHireClick }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = React.useState(true);
 
   const lastScrollY = React.useRef(0);
+
+  const handleHireClick = () => {
+    setMobileOpen(false);
+    onHireClick?.();
+  };
 
   /* Scroll hide/show logic */
   React.useEffect(() => {
@@ -145,7 +150,7 @@ export default function Header() {
       </List>
 
       <Box sx={{ p: 3 }}>
-        <Button variant="contained" fullWidth onClick={handleDrawerClose}>
+        <Button variant="contained" fullWidth onClick={handleHireClick}>
           Hire Me
         </Button>
       </Box>
@@ -221,6 +226,7 @@ export default function Header() {
                 <Button
                   variant="contained"
                   sx={{ display: { xs: "none", md: "inline-flex" } }}
+                  onClick={handleHireClick}
                 >
                   Hire Me
                 </Button>

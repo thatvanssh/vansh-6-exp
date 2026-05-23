@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AnimatedBox from './AnimatedBox';
 
-export default function CTASection() {
+export default function CTASection({ onHireClick }) {
   return (
     <Box id="contact" sx={{ py: 10, mb: 10 }}>
       <AnimatedBox animation="fadeInUp" delay={0.2} duration={0.7}>
@@ -90,7 +90,7 @@ export default function CTASection() {
               variant="contained"
               size="large"
               startIcon={<EmailIcon />}
-              href="mailto:alex.johnson@example.com"
+              onClick={onHireClick}
               sx={{
                 px: 5,
                 py: 2,

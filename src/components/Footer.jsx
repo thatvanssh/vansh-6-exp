@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
-import siteData from '../data/siteData';
+import siteData from "../data/siteData";
+import Logo from "../assets/images/logo.png";
 
 export default function Footer() {
   return (
@@ -27,22 +28,12 @@ export default function Footer() {
           {/* Logo */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Box
+              component="img"
+              src={Logo}
               sx={{
-                width: 24,
-                height: 24,
-                backgroundColor: "rgba(43, 108, 238, 0.2)",
-                borderRadius: 1.5,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "primary.main",
+                width: 70,
               }}
-            >
-              <CodeIcon sx={{ fontSize: 14 }} />
-            </Box>
-            <Typography variant="body2" fontWeight={700}>
-              {siteData.siteName}
-            </Typography>
+            />
           </Box>
 
           {/* Copyright */}

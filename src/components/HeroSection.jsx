@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import AnimatedBox from './AnimatedBox';
 import siteData from '../data/siteData';
 
-export default function HeroSection() {
+export default function HeroSection({ onHireClick }) {
   return (
     <Box id="hero" sx={{ py: { xs: 8, md: 12 } }}>
       <Grid container spacing={6}>
@@ -116,8 +116,9 @@ export default function HeroSection() {
                 <Button
                   variant="outlined"
                   size="large"
-                  component="a"
-                  href={siteData.hero.ctas?.[1]?.href || '/cv.pdf'}
+                  component={onHireClick ? 'button' : 'a'}
+                  href={onHireClick ? undefined : siteData.hero.ctas?.[1]?.href || '/cv.pdf'}
+                  onClick={onHireClick}
                   sx={{
                     px: 4,
                     py: 2,
