@@ -4,10 +4,10 @@ import Typography from '@mui/material/Typography';
 import AnimatedBox from './AnimatedBox';
 
 const stats = [
-  { value: '15+', label: 'Projects Completed' },
+  { value: '30+', label: 'Projects Completed' },
   { value: '6+', label: 'Years Experience' },
   { value: '100%', label: 'Client Satisfaction' },
-  { value: '25k+', label: 'Lines of Code' },
+  { value: '1M+', label: 'Lines of Code' },
 ];
 
 export default function StatsBar() {

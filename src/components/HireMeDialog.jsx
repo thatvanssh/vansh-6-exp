@@ -8,11 +8,16 @@ import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 import React from 'react';
 
 const EMAIL_RECIPIENT = 'thatvansh@gmail.com';
 
 export default function HireMeDialog({ open, onClose }) {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [subject, setSubject] = React.useState('');
@@ -45,11 +50,12 @@ export default function HireMeDialog({ open, onClose }) {
     <Dialog
       open={open}
       onClose={handleClose}
+      fullScreen={fullScreen}
       maxWidth="sm"
       fullWidth
       BackdropProps={{
         sx: {
-          backdropFilter: 'blur(5px)',
+          backdropFilter: 'blur(20px)',
           backgroundColor: 'rgba(0, 0, 0, 0.45)',
         },
       }}
@@ -60,6 +66,8 @@ export default function HireMeDialog({ open, onClose }) {
           boxShadow: '0 24px 80px rgba(0, 0, 0, 0.35)',
           backdropFilter: 'blur(16px)',
           color: 'text.primary',
+          minHeight: fullScreen ? '100vh' : 'auto',
+          borderRadius: fullScreen ? 0 : 3,
         },
       }}
     >
